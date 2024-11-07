@@ -1,0 +1,30 @@
+{{ define "main" }}
+
+<div class="mw7 center ph3 pt4">
+    <h1>{{ .Title }}</h1>
+    <p>{{ .Params.description }}</p>
+
+    <!-- Gallery of photos and videos -->
+    <div class="media-gallery">
+        {{ range .Params.media }}
+        <div class="media-item mb4">
+            {{ if .type == "image" }}
+            <img src="{{ .url }}" alt="{{ .caption }}" class="db mb3 w-100" />
+            {{ else if .type == "video" }}
+            <div class="video-container">
+                <iframe
+                    src="{{ .url }}"
+                    frameborder="0"
+                    allow="autoplay; encrypted-media"
+                    allowfullscreen
+                ></iframe>
+            </div>
+            {{ end }} {{ if .caption }}
+            <p class="caption">{{ .caption }}</p>
+            {{ end }}
+        </div>
+        {{ end }}
+    </div>
+</div>
+
+{{ end }}

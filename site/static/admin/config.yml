@@ -1,7 +1,14 @@
+#netlify
+#backend:
+#  name: git-gateway
+#  branch: main
+#cloudflare
 backend:
-  name: git-gateway
+  name: github
+  repo: iveskins/456content-ops-starter
   branch: main
-
+  base_url: https://miwashibata.com
+  auth_endpoint: /api/auth
 media_folder: "site/static/img" # Folder where user-uploaded files should go
 public_folder: "img"
 

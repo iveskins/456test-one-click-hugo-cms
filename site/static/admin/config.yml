@@ -7,7 +7,7 @@ backend:
   name: github
   repo: iveskins/456content-ops-starter
   branch: main
-  base_url: https://miwashibata.com
+  base_url: https://456test-one-click-hugo-cms.pages.dev/
   auth_endpoint: /api/auth
 media_folder: "site/static/img" # Folder where user-uploaded files should go
 public_folder: "img"

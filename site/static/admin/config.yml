@@ -5,7 +5,7 @@
 #cloudflare
 backend:
   name: github
-  repo: iveskins/456content-ops-starter
+  repo: iveskins/456test-one-click-hugo-cms
   branch: main
   base_url: https://456test-one-click-hugo-cms.pages.dev/
   auth_endpoint: /api/auth

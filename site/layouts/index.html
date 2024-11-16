@@ -1,13 +1,31 @@
 {{ define "main" }}
 
-{{ partial "jumbotron" (dict "imageUrl" .Params.image "title" .Title "subtitle" .Params.subtitle) }}
-
-{{ partial "short-text" .Params.blurb}}
-
-{{ partial "2-up" .Params }}
-
-{{ partial "text-and-image" (dict "heading" .Params.values.heading "text" .Params.values.text "buttonText" "Read more" "buttonLink" "/values") }}
-
-{{ partial "blog" . }}
-
+<!-- Banner Section -->
+{{ if .Params.banner_image }}
+<div class="banner">
+    <img src="{{ .Params.banner_image }}" alt="{{ .Title }}" class="w-100" />
+</div>
 {{ end }}
+
+<!-- Title and Subtitle -->
+{{ if .Title }}
+<h1 class="tc f1">{{ .Title }}</h1>
+{{ end }} {{ if .Params.subtitle }}
+<h2 class="tc f2">{{ .Params.subtitle }}</h2>
+{{ end }}
+
+<!-- Dynamic Sections -->
+{{ range .Params.sections }}
+<section class="mw7 center pv4">
+    <h3 class="f3 tc">{{ .heading }}</h3>
+    {{ if .image }}
+    <div class="tc">
+        <img src="{{ .image }}" alt="{{ .heading }}" class="w-100" />
+    </div>
+    {{ end }} {{ if .text }}
+    <p class="lh-copy measure center">{{ .text }}</p>
+    {{ end }}
+</section>
+{{ end }}
+<!-- Include Latest News Partial -->
+{{ partial "latest-news.html" . }} {{ end }}

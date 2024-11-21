@@ -1,6 +1,6 @@
 ---
-title: set
-description: set
-image: img/p22_sorted_output_edges_1.png
-background: set
+title: The person
+description: this is a bio page
+image: img/android-chrome-191x191.png
+background: background info
 ---

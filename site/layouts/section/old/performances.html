@@ -1,0 +1,28 @@
+{{ define "main" }}
+
+<div class="mw7 center ph3 pt4">
+    <h1>{{ .Title }}</h1>
+    <p>{{ .Params.description }}</p>
+
+    <!-- Performances list -->
+    <div class="performance-list">
+        {{ range .Pages }}
+        <article class="performance-item mb4">
+            <h2 class="f3 lh-title mb1">
+                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            </h2>
+            <p>{{ .Params.venue }} - {{ .Params.date }}</p>
+            <p>{{ .Params.description }}</p>
+            {{ if .Params.image }}
+            <img
+                src="{{ .Params.image }}"
+                alt="{{ .Title }}"
+                class="db mb3 w-100"
+            />
+            {{ end }}
+        </article>
+        {{ end }}
+    </div>
+</div>
+
+{{ end }}

@@ -1,0 +1,44 @@
+{{ define "main" }}
+<div class="mw7 center ph3 pt4">
+    <h1 class="f2 b lh-title mb3">{{ .Title }}</h1>
+    <p class="f4 mb4">{{ .Params.description }}</p>
+
+    <!-- Loop through each upcoming work -->
+    <div class="upcoming-works-list">
+        {{ range .Pages }}
+        <article class="mb5">
+            <h2 class="f3 lh-title mb2">
+                <a href="{{ .RelPermalink }}" class="link black"
+                    >{{ .Title }}</a
+                >
+            </h2>
+
+            <!-- Event Date and Location -->
+            <p class="f5 grey-3 mb1">
+                {{ .Params.event_date | time.Format "January 2, 2006" }}
+            </p>
+            <p class="f5 grey-3 mb3">{{ .Params.location }}</p>
+
+            <!-- Description -->
+            <div class="mb3">{{ .Params.description }}</div>
+
+            <!-- Image (if available) -->
+            {{ if .Params.image }}
+            <img
+                src="{{ .Params.image }}"
+                alt="{{ .Title }}"
+                class="db w-100 mb3 br2"
+            />
+            {{ end }}
+
+            <!-- Read more link to individual page (if more details are available) -->
+            <p>
+                <a href="{{ .RelPermalink }}" class="link underline primary"
+                    >Learn more about this work</a
+                >
+            </p>
+        </article>
+        {{ end }}
+    </div>
+</div>
+{{ end }}

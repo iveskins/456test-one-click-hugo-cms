@@ -1,0 +1,15 @@
+<section class="event-list">
+    <h2 class="f2 b lh-title mb4">Upcoming Events</h2>
+    {{ range .Pages }}
+      <div class="event-card mb4">
+        <h3 class="f3 b">{{ .Title }}</h3>
+        <p class="f5 grey">{{ .Params.date | dateFormat "January 2, 2006" }}</p>
+        <p class="f4 lh-copy">{{ .Params.description | safeHTML }}</p>
+        {{ if .Params.location }}
+          <p><strong>Location:</strong> {{ .Params.location }}</p>
+        {{ end }}
+        <a href="{{ .Permalink }}" class="link blue">Read More</a>
+      </div>
+    {{ end }}
+  </section>
+  

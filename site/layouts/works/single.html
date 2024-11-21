@@ -1,0 +1,33 @@
+{{ define "main" }}
+<article class="work-single mw7 center ph3 pv4">
+  <h1 class="f2 b lh-title mb3">{{ .Title }}</h1>
+  <p class="f5 mid-gray">{{ .Date.Format "January 2, 2006" }}</p>
+
+  <!-- Main Image -->
+  {{ if .Params.main_image }}
+    <img src="{{ .Params.main_image }}" alt="{{ .Title }}" class="w-100 br1 mb4">
+  {{ end }}
+
+  <!-- Description -->
+  <div class="content lh-copy mb4">
+    {{ .Params.description | markdownify }}
+  </div>
+
+  <!-- Main Video -->
+  {{ if .Params.main_video }}
+    <video controls class="w-100 mt4">
+      <source src="{{ .Params.main_video }}" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  {{ end }}
+
+  <!-- Additional Images -->
+  {{ if .Params.images }}
+    <div class="gallery flex flex-wrap mt4">
+      {{ range .Params.images }}
+        <img src="{{ .image }}" alt="Work Image" class="w-50 br1 mb2">
+      {{ end }}
+    </div>
+  {{ end }}
+</article>
+{{ end }}

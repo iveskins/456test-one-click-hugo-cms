@@ -1,0 +1,15 @@
+<section class="latest-news mw7 center ph3 pv4">
+  <h2 class="f3 b lh-title mb4">Latest News</h2>
+  
+  <div class="news-list">
+    {{ range first 3 (where .Site.RegularPages "Type" "news") }}
+      <article class="news-item mb4">
+        <a href="{{ .RelPermalink }}" class="link black no-underline">
+          <h3 class="f4 b lh-title">{{ .Title }}</h3>
+          <p class="mid-gray">{{ .Date.Format "January 2, 2006" }}</p>
+          <p class="lh-copy">{{ .Summary }}</p>
+        </a>
+      </article>
+    {{ end }}
+  </div>
+</section>

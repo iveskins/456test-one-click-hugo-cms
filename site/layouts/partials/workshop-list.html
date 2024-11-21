@@ -1,0 +1,17 @@
+<section class="workshop-list">
+    <h2 class="f2 b lh-title mb4">Workshops</h2>
+    {{ range .Site.Data.workshops }}
+      <div class="workshop-card mb4">
+        <h3 class="f3 b">{{ .title }}</h3>
+        <p class="f5 grey">{{ .date | dateFormat "January 2, 2006" }}</p>
+        <p class="f4 lh-copy">{{ .description | safeHTML }}</p>
+        {{ if .how_to_join }}
+          <a href="#" class="link blue">How to Join</a>
+        {{ end }}
+        {{ if .latest_info_link }}
+          <a href="{{ .latest_info_link }}" class="link blue" target="_blank">More Info</a>
+        {{ end }}
+      </div>
+    {{ end }}
+  </section>
+  

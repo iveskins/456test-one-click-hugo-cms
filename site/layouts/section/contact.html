@@ -1,24 +1,12 @@
 {{ define "main" }}
+<section class="contact-page">
+  <h2 class="tc f2 b lh-title mb4">Contact</h2>
 
-<div class="ph3 bg-off-white">
-	<div class="center mw6 pv3">
+  <!-- Contact Information -->
+  {{ partial "contact-info.html" . }}
 
-		<img src="{{ .Params.logo }}" alt="" class="db w4 center pv4">
-
-		{{ .Content }}
-
-		<div class="flex-ns mb3">
-	        	{{ range .Params.contact_entries }}
-				<div>
-					<h4 class="f4 b lh-title mb2 primary">{{ .heading }}</h4>
-					<p>{{ .text }}</p>
-				</div>
-			{{ end }}
-		</div>
-
-		{{ partial "contact-form" . }}
-
-	</div>
-</div>
-
+  <!-- Social Media Links -->
+  {{ partial "social-icons.html" . }}
+</section>
 {{ end }}
+å

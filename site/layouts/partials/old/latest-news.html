@@ -1,0 +1,23 @@
+<section class="mw7 center pv4">
+    <h3 class="tc f3">Latest News</h3>
+    <div class="flex-ns flex-wrap justify-between">
+        {{ range first 3 (where .Site.Pages "Section" "blog") }}
+        <article class="w-30-ns pa2 ba br2 bg-white">
+            <h4 class="f4">
+                <a href="{{ .Permalink }}" class="link black">{{ .Title }}</a>
+            </h4>
+            <p class="f6 gray">{{ .Date.Format "2 January 2006" }}</p>
+            {{ if .Params.image }}
+            <div>
+                <img
+                    src="{{ .Params.image }}"
+                    alt="{{ .Title }}"
+                    class="w-100 br2"
+                />
+            </div>
+            {{ end }}
+            <p class="lh-copy">{{ .Params.description | truncate 100 }}</p>
+        </article>
+        {{ end }}
+    </div>
+</section>

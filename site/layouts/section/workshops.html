@@ -1,0 +1,12 @@
+{{ define "main" }}
+<section class="workshops-section mw7 center ph3 pv4">
+  <h1 class="f2 b lh-title mb4">Workshops</h1>
+
+  <!-- Workshops List -->
+  <div class="workshops-list">
+    {{ range .Pages }}
+      {{ partial "workshop-card.html" . }}
+    {{ end }}
+  </div>
+</section>
+{{ end }}

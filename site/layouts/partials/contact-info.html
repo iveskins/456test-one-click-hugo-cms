@@ -1,0 +1,15 @@
+<section class="contact-info">
+    <h2 class="f2 b lh-title mb4">Contact Information</h2>
+    <p class="f4">
+      <strong>Name:</strong> {{ .Site.Data.contact.name }}<br>
+      <strong>Email:</strong> <a href="mailto:{{ .Site.Data.contact.email }}" class="link blue">{{ .Site.Data.contact.email }}</a>
+    </p>
+    <div class="social-icons flex justify-center">
+      {{ range .Site.Data.contact.social_media }}
+        <a href="{{ .link }}" target="_blank" class="mh2" aria-label="{{ .name }}">
+          <img src="{{ .icon }}" alt="{{ .name }}" class="w3 h3 br-100">
+        </a>
+      {{ end }}
+    </div>
+  </section>
+  

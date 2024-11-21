@@ -1,0 +1,22 @@
+<section class="home-page">
+    <!-- Banner Section -->
+    <div class="banner mb4">
+      <img src="{{ .Params.banner_image }}" alt="Banner Image" class="w-100">
+      <h1 class="f1 b lh-title tc">{{ .Params.title }}</h1>
+      <h2 class="f3 grey tc">{{ .Params.subtitle }}</h2>
+    </div>
+  
+    <!-- Dynamic Sections -->
+    {{ range .Params.sections }}
+      <section class="home-section mb4">
+        <h3 class="f3 b mb3">{{ .heading }}</h3>
+        {{ if .image }}
+          <img src="{{ .image }}" alt="{{ .name }}" class="w-50 mb3">
+        {{ end }}
+        <div class="section-text">
+          {{ .text | markdownify }}
+        </div>
+      </section>
+    {{ end }}
+  </section>
+`  

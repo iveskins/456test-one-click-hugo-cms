@@ -1,0 +1,15 @@
+{{ define "main" }}
+<section class="events-section mw7 center ph3 pv4">
+  <h1 class="f2 b lh-title mb4">Upcoming Events</h1>
+
+  <!-- Group by Event Type -->
+  {{ range .Pages.GroupBy "Params.type" }}
+    <h2 class="f3 b lh-title mb3">{{ .Key }}</h2>
+    <div class="event-list">
+      {{ range .Pages }}
+        {{ partial "event-card.html" . }}
+      {{ end }}
+    </div>
+  {{ end }}
+</section>
+{{ end }}

@@ -1,0 +1,226 @@
+#netlify
+#backend:
+#  name: git-gateway
+#  branch: main
+#cloudflare
+backend:
+  name: github
+  repo: iveskins/456test-one-click-hugo-cms
+  branch: main
+  base_url: https://456test-one-click-hugo-cms.pages.dev/
+  auth_endpoint: /api/auth
+media_folder: "site/static/img" # Folder where user-uploaded files should go
+public_folder: "img"
+
+collections:
+  - name: "landing-page"
+    label: "Landing Page"
+    files:
+      - file: "site/content/_index.md"
+        label: "Landing Page"
+        name: "landing_page"
+        fields:
+          - { label: "Title", name: "title", widget: "string", required: false }
+          - {
+              label: "Banner Image",
+              name: "banner_image",
+              widget: "image",
+              required: false,
+            }
+          - {
+              label: "Subtitle",
+              name: "subtitle",
+              widget: "string",
+              required: false,
+            }
+          - label: "Sections"
+            name: "sections"
+            widget: list
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string" }
+              - {
+                  label: "Image",
+                  name: "image",
+                  widget: "image",
+                  required: false,
+                }
+              - { label: "Text", name: "text", widget: "markdown" }
+  # Blog Posts Collection
+  - name: "blog"
+    label: "Blog"
+    folder: "site/content/blog"
+    path: "{{slug}}/index"
+    create: true
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Intro Blurb", name: "description", widget: "text" }
+      - { label: "Image", name: "image", widget: "image", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  # Bio Section for Choreographer
+  - name: "bio"
+    label: "Bio"
+    files:
+      - file: "site/content/bio/_index.md"
+        label: "Bio Page"
+        name: "bio"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "markdown" }
+          - { label: "Image", name: "image", widget: "image" }
+          - { label: "Background Info", name: "background", widget: "markdown" }
+
+  # Projects Collection
+  - name: "projects"
+    label: "Projects"
+    folder: "site/content/projects"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Description", name: "description", widget: "markdown" }
+      - {
+          label: "Project Images",
+          name: "images",
+          widget: "list",
+          field: { label: "Image", name: "image", widget: "image" },
+        }
+      - { label: "Video", name: "video", widget: "string", required: false }
+
+  # Performances Collection
+  - name: "performances"
+    label: "Performances"
+    folder: "site/content/performances"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Venue", name: "venue", widget: "string" }
+      - { label: "Description", name: "description", widget: "markdown" }
+      - {
+          label: "Performance Images",
+          name: "images",
+          widget: "list",
+          field: { label: "Image", name: "image", widget: "image" },
+        }
+      - { label: "Video", name: "video", widget: "string", required: false }
+
+  # Media Collection (Photos and Videos)
+  - name: "media"
+    label: "Media"
+    folder: "site/content/media"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - {
+          label: "Type",
+          name: "type",
+          widget: "select",
+          options: ["Photo", "Video"],
+        }
+      - { label: "Media File", name: "file", widget: "image" }
+      - { label: "Description", name: "description", widget: "text" }
+
+  # Upcoming Works Collection
+  - name: "upcoming-works"
+    label: "Upcoming Works"
+    folder: "site/content/upcoming-works"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Event Date", name: "event_date", widget: "datetime" }
+      - { label: "Description", name: "description", widget: "markdown" }
+      - { label: "Location", name: "location", widget: "string" }
+      - { label: "Image", name: "image", widget: "image", required: false }
+
+  # Teaching Section
+  - name: "teaching"
+    label: "Teaching"
+    folder: "site/content/teaching"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Location", name: "location", widget: "string" }
+      - { label: "Description", name: "description", widget: "markdown" }
+      - { label: "Image", name: "image", widget: "image", required: false }
+
+  # Contact Page Configuration
+  - name: "contact"
+    label: "Contact"
+    files:
+      - file: "site/content/contact/_index.md"
+        label: "Contact Page"
+        name: "contact"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Logo", name: "logo", widget: "image" }
+          - { label: "Body", name: "body", widget: "markdown" }
+          - label: "Contact Entries"
+            name: "contact_entries"
+            widget: list
+            fields:
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Text", name: "text", widget: "text" }
+  # Navigation Collection
+  - name: "navigation"
+    label: "Navigation"
+    files:
+      - file: "site/content/navigation.md"
+        label: "Navigation"
+        name: "navigation"
+        fields:
+          - label: "Nav Links"
+            name: "nav_links"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
+          - label: "Footer Links"
+            name: "footer_links"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
+
+
+                
+  # Site Settings Collection
+  - name: "site_settings"
+    label: "Site Settings"
+    files:
+      - file: "site/data/footer.json"
+        label: "Footer"
+        name: "footer"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Blurb", name: "blurb", widget: "text" }
+
+      - file: "site/hugo.toml"
+        label: "Hugo Config"
+        name: "config"
+        editor:
+          preview: false
+        fields:
+          - {
+              label: "Site Title for Browser Tab",
+              name: "title",
+              widget: "string",
+            }
+          - label: "Params"
+            name: "params"
+            widget: "object"
+            fields:
+              - {
+                  label: "Open Graph Image",
+                  name: "images",
+                  widget: "list",
+                  field: { label: "Image", name: "image", widget: "image" },
+                }

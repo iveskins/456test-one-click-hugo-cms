@@ -169,7 +169,29 @@ collections:
             fields:
               - { label: "Heading", name: "heading", widget: "string" }
               - { label: "Text", name: "text", widget: "text" }
+  # Navigation Collection
+  - name: "navigation"
+    label: "Navigation"
+    files:
+      - file: "site/content/navigation.md"
+        label: "Navigation"
+        name: "navigation"
+        fields:
+          - label: "Nav Links"
+            name: "nav_links"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
+          - label: "Footer Links"
+            name: "footer_links"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
 
+
+                
   # Site Settings Collection
   - name: "site_settings"
     label: "Site Settings"

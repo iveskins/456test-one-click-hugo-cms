@@ -1,0 +1,24 @@
+<div class="bio-content">
+    {{ if .Params.short_bio }}
+      <section class="short-bio mb4">
+        <h2 class="f3 b lh-title">Short Bio</h2>
+        <p class="lh-copy">{{ .Params.short_bio | markdownify }}</p>
+      </section>
+    {{ end }}
+  
+    {{ if .Params.full_bio }}
+      <section class="full-bio mb4">
+        <h2 class="f3 b lh-title">Full Bio</h2>
+        <p class="lh-copy">{{ .Params.full_bio | markdownify }}</p>
+      </section>
+    {{ end }}
+  
+    {{ if .Params.images }}
+      <section class="bio-images flex flex-wrap">
+        {{ range .Params.images }}
+          <img src="{{ .image }}" alt="Bio Image" class="w-50 mb3 br1">
+        {{ end }}
+      </section>
+    {{ end }}
+  </div>
+  

@@ -1,0 +1,9 @@
+<!-- Social Media Links -->
+<div class="social-icons flex justify-center items-center">
+    {{ range .Site.Data.contact.social_media }}
+      <a href="{{ .link }}" target="_blank" class="mh2" aria-label="{{ .name }}">
+        <img src="{{ .icon }}" alt="{{ .name }}" class="social-icon w2 h2 br-100">
+      </a>
+    {{ end }}
+  </div>
+  

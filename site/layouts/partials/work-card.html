@@ -1,0 +1,11 @@
+<article class="work-card w-50-ns ph3 mb4">
+    <a href="{{ .RelPermalink }}" class="no-underline">
+      {{ if .Params.main_image }}
+        <img src="{{ .Params.main_image }}" alt="{{ .Title }}" class="w-100 br1 mb3">
+      {{ end }}
+      <h2 class="f3 b lh-title">{{ .Title }}</h2>
+      <p class="mid-gray">{{ .Params.date | dateFormat "January 2, 2006" }}</p>
+      <p class="lh-copy">{{ .Params.description | plainify | truncate 100 }}</p>
+    </a>
+  </article>
+  

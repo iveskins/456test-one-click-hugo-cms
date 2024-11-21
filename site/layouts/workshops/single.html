@@ -1,0 +1,26 @@
+{{ define "main" }}
+<article class="workshop-single mw7 center ph3 pv4">
+  <h1 class="f2 b lh-title mb3">{{ .Title }}</h1>
+  <p class="f5 mid-gray">{{ .Date.Format "January 2, 2006" }}</p>
+
+  <!-- Description -->
+  <div class="content lh-copy mb4">
+    {{ .Params.description | markdownify }}
+  </div>
+
+  <!-- How to Join -->
+  {{ if .Params.how_to_join }}
+    <section class="join-info mt4">
+      <h2 class="f3 b lh-title">How to Join</h2>
+      <div class="lh-copy">
+        {{ .Params.how_to_join | markdownify }}
+      </div>
+    </section>
+  {{ end }}
+
+  <!-- Latest Info Link -->
+  {{ if .Params.latest_info_link }}
+    <a href="{{ .Params.latest_info_link }}" class="link blue mt4 dib">Get the Latest Info</a>
+  {{ end }}
+</article>
+{{ end }}

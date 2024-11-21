@@ -1,0 +1,10 @@
+<article class="event-card mb4">
+    <h3 class="f4 b lh-title">{{ .Title }}</h3>
+    <p class="mid-gray">{{ .Params.date | dateFormat "January 2, 2006" }}</p>
+    {{ if .Params.location }}
+      <p><strong>Location:</strong> {{ .Params.location }}</p>
+    {{ end }}
+    <p class="lh-copy">{{ .Params.description | plainify | truncate 100 }}</p>
+    <a href="{{ .RelPermalink }}" class="link blue">Read More</a>
+  </article>
+  

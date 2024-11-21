@@ -1,0 +1,14 @@
+{{ define "main" }}
+<article class="event-single mw7 center ph3 pv4">
+  <h1 class="f2 b lh-title mb3">{{ .Title }}</h1>
+  <p class="f5 mid-gray">{{ .Date.Format "January 2, 2006" }}</p>
+
+  {{ if .Params.location }}
+    <p><strong>Location:</strong> {{ .Params.location }}</p>
+  {{ end }}
+
+  <div class="content lh-copy">
+    {{ .Params.description | markdownify }}
+  </div>
+</article>
+{{ end }}

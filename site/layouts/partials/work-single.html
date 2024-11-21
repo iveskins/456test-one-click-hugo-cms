@@ -1,0 +1,29 @@
+<article class="work-single">
+    <h1 class="f2 b lh-title mb3">{{ .Title }}</h1>
+    <p class="f5 grey">{{ .Params.date | dateFormat "January 2, 2006" }}</p>
+    <img src="{{ .Params.main_image }}" alt="{{ .Title }}" class="w-100 mb3">
+    <div class="content">
+      <p>{{ .Params.description | safeHTML }}</p>
+      {{ if .Params.main_video }}
+        <video controls class="w-100">
+          <source src="{{ .Params.main_video }}" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      {{ end }}
+      {{ if .Params.images }}
+        <div class="image-gallery">
+          {{ range .Params.images }}
+            <img src="{{ .image }}" alt="Work Image" class="w-50 mb2">
+          {{ end }}
+        </div>
+      {{ end }}
+      {{ if .Params.videos }}
+        <div class="video-links">
+          {{ range .Params.videos }}
+            <a href="{{ .video_url }}" class="link blue" target="_blank">Watch Video</a>
+          {{ end }}
+        </div>
+      {{ end }}
+    </div>
+  </article>
+  

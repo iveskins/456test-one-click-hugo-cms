@@ -1,6 +1,22 @@
 {{ define "main" }}
+<article class="single mw7 center ph3 pv4">
+  <h1 class="f2 b lh-title mb3">{{ .Title }}</h1>
+  <p class="f5 mid-gray">{{ .Date.Format "January 2, 2006" }}</p>
 
-{{ partial "jumbotron" (dict "imageUrl" "/img/7.jpg" "title" "This is where the heading goes" "subtitle" "This is where the subtitle goes") }}
-{{ .Content }}
+  {{ if .Params.main_image }}
+    <img src="{{ .Params.main_image }}" alt="{{ .Title }}" class="w-100 br1 mb4">
+  {{ end }}
 
+  <div class="content lh-copy">
+    {{ .Content }}
+  </div>
+
+  {{ if .Params.images }}
+    <div class="gallery flex flex-wrap mt4">
+      {{ range .Params.images }}
+        <img src="{{ .image }}" alt="Gallery Image" class="w-50 br1 mb2">
+      {{ end }}
+    </div>
+  {{ end }}
+</article>
 {{ end }}

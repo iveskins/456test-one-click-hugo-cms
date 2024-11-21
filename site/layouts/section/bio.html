@@ -1,5 +1,7 @@
 {{ define "main" }}
-    <h1>{{ .Title }}</h1>
-    <p>{{ .Params.description }}</p>
-    <!-- Custom layout for bio goes here -->
+<section class="bio-section mw7 center ph3 pv4">
+  <h1 class="f2 b lh-title mb4">{{ .Params.title }}</h1>
+
+  {{ partial "bio-content.html" . }}
+</section>
 {{ end }}
